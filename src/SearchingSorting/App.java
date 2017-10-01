@@ -1,5 +1,7 @@
 package SearchingSorting;
 
+import java.util.Arrays;
+
 /**
  * Created by sunginjung on 9/30/17.
  */
@@ -11,6 +13,7 @@ public class App {
         int[] arr2 = new int[] {12,4,11,135,135,1,0,100,99};
         int[] arr3 = new int[] {12,4,11,135,135,1,0,100,99};
         int[] arr4 = new int[] {12,4,11,135,135,1,0,100,99};
+        int[] arr5 = new int[] {12,4,11,135,135,1,0,100,99};
 
 
 //        System.out.println(binarySearch(arr, 2));
@@ -24,25 +27,29 @@ public class App {
 //        System.out.println(rec_BinarySearch(arr, 6));
 //        System.out.println(rec_BinarySearch(arr, 8));
 //        System.out.println(rec_BinarySearch(arr, 1));
+//
+//        arr2 = selectionSort(arr2);
+//
+//        for(int value : arr2){
+//            System.out.println(value);
+//        }
+//
+//        arr3 = selectionSort2(arr3);
+//
+//        for(int value: arr3){
+//            System.out.println(value);
+//        }
+//
+//        arr4 = inserstionSort(arr4);
+//
+//        for(int value: arr4){
+//            System.out.println(value);
+//        }
 
-        arr2 = selectionSort(arr2);
-
-        for(int value : arr2){
-            System.out.println(value);
-        }
-
-        arr3 = selectionSort2(arr3);
-
-        for(int value: arr3){
-            System.out.println(value);
-        }
-
-        arr4 = inserstionSort(arr4);
-
-        for(int value: arr4){
-            System.out.println(value);
-        }
-
+          mergeSort(arr5, 0, arr5.length - 1);
+          for(int value: arr5){
+              System.out.println(value);
+          }
 
     }
 
@@ -131,6 +138,57 @@ public class App {
             arr[j+1] = current;
         }
         return arr;
+    }
+
+    static void mergeSort(int[] arr, int start, int end){
+        if(end <= start){
+            return;
+        }
+
+        int mid = (start + end ) / 2;
+        mergeSort(arr, start, mid);
+        mergeSort(arr, mid + 1, end);
+        merge(arr, start, mid, end);
+    }
+
+    private static void merge(int[] arr, int start, int mid, int end) {
+
+        int[] tempArray = new int[ end - start + 1];
+
+        int leftidx = start;
+        int rightidx = mid + 1;
+        int idx = 0;
+
+        while(leftidx <= mid && rightidx <= end) {
+            if(arr[leftidx] < arr[rightidx]){
+                tempArray[idx] = arr[leftidx];
+                leftidx++;
+            } else {
+                tempArray[idx] = arr[rightidx];
+                rightidx++;
+            }
+            idx++;
+        }
+
+        if(leftidx <= mid){
+            while(leftidx <= mid){
+                tempArray[idx] = arr[leftidx];
+                leftidx++;
+                idx++;
+            }
+        }else if(rightidx <= end){
+            while(rightidx <= end){
+                tempArray[idx] = arr[rightidx];
+                rightidx++;
+                idx++;
+            }
+        }
+
+
+        for(int i = 0; i < tempArray.length; i++){
+            arr[start + i] = tempArray[i];
+        }
+
     }
 
 
