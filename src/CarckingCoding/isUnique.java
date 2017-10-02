@@ -1,4 +1,4 @@
-package CarckingCoding.Chapter1;
+package CarckingCoding;
 
 /**
  * Created by sunginjung on 9/29/17.

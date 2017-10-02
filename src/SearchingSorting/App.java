@@ -46,7 +46,7 @@ public class App {
 //            System.out.println(value);
 //        }
 
-          mergeSort(arr5, 0, arr5.length - 1);
+          quickSort(arr5, 0, arr5.length - 1);
           for(int value: arr5){
               System.out.println(value);
           }
@@ -188,6 +188,36 @@ public class App {
         for(int i = 0; i < tempArray.length; i++){
             arr[start + i] = tempArray[i];
         }
+
+    }
+
+    static void quickSort(int[] arr, int start, int end){
+        if(start < end){
+            int pivotIdx = partition(arr, start, end);
+            quickSort(arr, start, pivotIdx - 1);
+            quickSort(arr, pivotIdx + 1,  end);
+
+        }
+    }
+
+    private static int partition(int[] arr, int start, int end) {
+
+        int pivot = arr[end];
+        int i = start - 1;
+        for(int j = start; j < end; j++){
+            if(arr[j] <= pivot){
+                i++;
+                int temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
+            }
+        }
+
+        int temp = arr[i+1];
+        arr[i+1] = pivot;
+        arr[end] = temp;
+
+        return i + 1;
 
     }
 
