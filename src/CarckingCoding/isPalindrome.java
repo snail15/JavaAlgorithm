@@ -6,7 +6,7 @@ package CarckingCoding;
 public class isPalindrome {
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome("!!!!Are we not pure? “No, sir!” Panama’s moody Noriega brags. “It is garbage!” Irony dooms a man—a prisoner up to new era."));
+        System.out.println(isPalindrome("a.b,."));
     }
 
     static boolean isPalindrome(String s){
