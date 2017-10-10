@@ -9,7 +9,7 @@ public class ValidParenthesis {
 
     public static void main(String[] args) {
 
-        System.out.println(isValidParen("sjkjkjkjkj]"));
+        System.out.println(isValidParen("sjkj()kjkjkj[]"));
 
     }
 
