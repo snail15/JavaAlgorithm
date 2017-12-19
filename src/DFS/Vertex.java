@@ -18,12 +18,12 @@ public class Vertex {
     }
 
     public String toString(){
-        return this.name;
+        return String.valueOf(this.name);
     }
 
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -42,7 +42,7 @@ public class Vertex {
         return neighbors;
     }
 
-    public void setNeighbors(Vertex vertex) {
+    public void addNeighbors(Vertex vertex) {
         this.neighbors.add(vertex);
     }
 }
