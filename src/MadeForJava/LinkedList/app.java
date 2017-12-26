@@ -9,33 +9,36 @@ public class app {
 
         SingleNode node1 = new SingleNode(1);
         SingleNode node2 = new SingleNode(2);
-        SingleNode node3 = new SingleNode(5);
+        SingleNode node3 = new SingleNode(3);
+        SingleNode node4 = new SingleNode(4);
+        SingleNode node5 = new SingleNode(5);
 
-        node1.setNext(node3);
-        System.out.println(node1.getNext().getData());
 
-        node2 = insertNode(node1, node2, 1);
-        System.out.println(node1.getNext().getData());
-
-        node1 = deleteNode(node1, 1);
-        System.out.println(node1.getNext().getData());
-
-        DoubleNode node4 = new DoubleNode(4);
-        DoubleNode node5 = new DoubleNode(6);
-        DoubleNode node6 = new DoubleNode(9);
-
+        node1.setNext(node2);
+        node2.setNext(node3);
+        node3.setNext(node4);
         node4.setNext(node5);
-        node5.setPrevious(node4);
+        node5.setNext(node1);
 
-        System.out.println(node4.getData());
-        System.out.println(node4.getNext().getData());
+        SingleNode nthNode = nthLast(node1, 5);
+        System.out.println("Nth Last: " + nthNode.getData());
+//        System.out.println(isCycle(node3));
+
+//        DoubleNode node4 = new DoubleNode(4);
+//        DoubleNode node5 = new DoubleNode(6);
+//        DoubleNode node6 = new DoubleNode(9);
+//
+//        node4.setNext(node5);
+//        node5.setPrevious(node4);
+//
+//        System.out.println(node4.getData());
+//        System.out.println(node4.getNext().getData());
+//
+//
+//        node6 = insertDoubleNode(node4, node6, 2);
+//        System.out.println(node4.getNext().getNext().getData());
 
 
-        node6 = insertDoubleNode(node4, node6, 2);
-        System.out.println(node4.getNext().getNext().getData());
-
-        deleteDoubleNode(node4, 1);
-        System.out.println(node4.getNext().getData());
 
     }
 
@@ -187,6 +190,52 @@ public class app {
             newNextNode.setPrevious(previous);
         }
 
+    }
+
+    private static SingleNode nthLast(SingleNode head, int n) {
+
+        SingleNode leftPointer = head;
+        SingleNode rightPointer = head;
+
+        for(int i = 0; i < n; i++) {
+            if(rightPointer == null){
+                throw new IndexOutOfBoundsException("Too Short List");
+            }
+            rightPointer = rightPointer.getNext();
+        }
+
+        while(rightPointer != null) {
+            rightPointer = rightPointer.getNext();
+            leftPointer = leftPointer.getNext();
+        }
+
+        return leftPointer;
+
+    }
+
+    private static boolean isCycle(SingleNode head) {
+
+        SingleNode slowRunner = head;
+        SingleNode fastRunner = head;
+
+        while(slowRunner != null && fastRunner != null) {
+
+            fastRunner = fastRunner.getNext();
+            if(fastRunner == slowRunner) {
+                return true;
+            } else if(fastRunner == null) {
+                return false;
+            }
+
+            fastRunner = fastRunner.getNext();
+            if(fastRunner == slowRunner) {
+                return true;
+            }
+
+            slowRunner = slowRunner.getNext();
+        }
+
+        return false;
     }
 
 }
