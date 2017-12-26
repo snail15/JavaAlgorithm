@@ -18,11 +18,11 @@ public class app {
         node2.setNext(node3);
         node3.setNext(node4);
         node4.setNext(node5);
-        node5.setNext(node1);
+//        node5.setNext(node1);
 
-        SingleNode nthNode = nthLast(node1, 5);
-        System.out.println("Nth Last: " + nthNode.getData());
-//        System.out.println(isCycle(node3));
+//        SingleNode nthNode = nthLast(node1, 5);
+//        System.out.println("Nth Last: " + nthNode.getData());
+        System.out.println(isCycle(node3));
 
 //        DoubleNode node4 = new DoubleNode(4);
 //        DoubleNode node5 = new DoubleNode(6);
