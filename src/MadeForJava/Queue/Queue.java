@@ -1,6 +1,9 @@
 package MadeForJava.Queue;
 
 import MadeForJava.LinkedList.SingleNode;
+import MadeForJava.Stack.MyStack;
+
+import java.util.Stack;
 
 /**
  * Created by sunginjung on 12/28/17.
@@ -48,5 +51,31 @@ public class Queue {
 
     public int front() {
         return this.head.getData();
+    }
+
+    public Queue reverse() {
+
+        Stack<SingleNode> stack = new Stack();
+
+        while(!this.isEmpty()) {
+            stack.push(this.dequeue());
+        }
+
+        while(!stack.isEmpty()) {
+            this.enqueue(stack.pop());
+        }
+
+        return this;
+    }
+
+    public int size() {
+        int size = 0;
+        SingleNode head = this.head;
+        while(head != null) {
+            size++;
+            head = head.getNext();
+        }
+
+        return size;
     }
 }
