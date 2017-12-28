@@ -40,4 +40,8 @@ public class QueueByStack {
         shiftStacks();
         return this.outputStack.pop();
     }
+
+    public void enqueu(SingleNode newNode) {
+        this.inputStack.push(newNode);
+    }
 }
