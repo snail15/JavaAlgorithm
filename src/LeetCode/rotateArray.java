@@ -8,7 +8,7 @@ public class rotateArray {
 
         int[] test = new int[]{1, 2, 3, 4, 5, 6, 7};
 
-        rorateArray(test, 3);
+        rorateArray(test, 1);
 
         for(int value: test){
             System.out.print(value + " ");
@@ -35,8 +35,17 @@ public class rotateArray {
         int len = arr.length;
 
         n *= -1;
-        n = n % len;
-        n = n + len;
+        n %= len;
+        n += len;
+
+//        for right rotation
+//
+//        n = n % len;
+//
+//        if(n < 0) {
+//            n = n + len;
+//        }
+
 
         arr = reverseArray(arr, 0, len - 1);
         arr = reverseArray(arr, 0, n - 1);
