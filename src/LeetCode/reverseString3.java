@@ -14,20 +14,16 @@ public class reverseString3 {
 
     public static String reverseWords(String s) {
         String[] original = s.split(" ");
-        String[] reverse = new String[original.length];
+        StringBuilder sb = new StringBuilder();
 
         for(int i = 0; i < original.length; i++) {
-
-            StringBuilder sb = new StringBuilder();
             for(int j = original[i].length() - 1; j >= 0; j-- ) {
                 sb.append(original[i].charAt(j));
 
             }
-            reverse[i] = sb.toString();
-
+            if(i < original.length -1) sb.append(" ");
         }
-
-        return String.join(" ", reverse);
+        return sb.toString();
     }
 
 }
