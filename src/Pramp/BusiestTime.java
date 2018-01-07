@@ -11,18 +11,18 @@ public class BusiestTime {
         int maximumCustomer = Integer.MIN_VALUE;
         int timeStamp = 0;
         // 0 : 10, 1    0 : 4, 0
-        for(int i = 0; i < data.length;  i++) {
-            if(data[i][2] == 1) {
+        for (int i = 0; i < data.length; i++) {
+            if (data[i][2] == 1) {
                 currentCustomer += data[i][1];
             } else {
                 currentCustomer -= data[i][1];
             }
 
-            if ( i < data.length - 1 && data[i + 1][0] == data[i][0]){
+            if (i < data.length - 1 && data[i + 1][0] == data[i][0]) {
                 continue;
             }
 
-            if(currentCustomer > maximumCustomer) {
+            if (currentCustomer > maximumCustomer) {
                 maximumCustomer = currentCustomer;
                 timeStamp = data[i][0];
             }
@@ -30,5 +30,6 @@ public class BusiestTime {
         }
 
         return timeStamp;
+    }
 
     }

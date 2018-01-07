@@ -5,13 +5,13 @@ package LeetCode;
  */
 public class deleteNodeWithoutHead {
 
-    public static void DeleteNode(ListNode node) {
-
-        if(node != null && node.next != null) {
-            node.val = node.next.val;
-            node.next = node.next.next;
-        }
-
-
-    }
+//    public static void DeleteNode(ListNode node) {
+//
+//        if(node != null && node.next != null) {
+//            node.val = node.next.val;
+//            node.next = node.next.next;
+//        }
+//
+//
+//    }
 }

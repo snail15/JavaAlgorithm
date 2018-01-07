@@ -5,7 +5,7 @@ package LeetCode;
  */
 public class MaxDepthBinaryTree {
 
-    public static int maxDepth(TreeNode root) {
-        return root==null? 0 : Math.max(maxDepth(root.left), maxDepth(root.right))+1;
-    }
+//    public static int maxDepth(TreeNode root) {
+//        return root==null? 0 : Math.max(maxDepth(root.left), maxDepth(root.right))+1;
+//    }
 }

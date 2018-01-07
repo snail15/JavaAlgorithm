@@ -61,10 +61,10 @@ public class DFS {
 
         System.out.println("current: " + v);
 
-        for(Vertex v : v.getNeighbors()) {
-            if(!v.isVisited()) {
-                v.setVisited(true);
-                dfsRecursive(v);
+        for(Vertex vert : v.getNeighbors()) {
+            if(!vert.isVisited()) {
+                vert.setVisited(true);
+                dfsRecursive(vert);
             }
         }
     }
